@@ -125,11 +125,19 @@ class mtanelQd(object):
             # 验证是否签到成功
             check = re.findall('<root><(.*?)</root>', page_text2, re.S)
             if (len(check) != 0):
-                print('签到成功')
                 print(f'签到详情：{check}')
+                if ("今日已签" in str(check)):
+                    jg="今天已经签到过了~"
+                    print('今天已经签到过了~')
+                elif ("已签到" in str(check)):
+                    jg="今天已经签到过了~"
+                    print('今天已经签到过了~')
+                else:
+                    jg="签到成功~"
+                    print('签到成功')
                 xx = session.get(headers=headers, url=getHashurl).text
                 jib = re.findall('积分奖励</h4>.*?></span>',xx,re.S)
-                lxb = re.findall('连续签到</h4>.*?></span>',xx,re.S)
+                lxb = re.findall('<h4>连续签到.*?></span>',xx,re.S)
                 djb = re.findall('签到等级</h4>.*?></span>',xx,re.S)
                 ztsb = re.findall('签到等级</h4>.*?></span>',xx,re.S)
                 name = re.findall('<div id="comiis_key".*?<span>(.*?)</span>.*?</div>', xx, re.S)[0]
