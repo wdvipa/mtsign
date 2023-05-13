@@ -8,8 +8,9 @@
 111|1111
 222|2222
 //更新内容：加入已签到判断，修复因"补签"无法匹配导致报错行
-//如需推送将需要的推送写入变量mt_fs即可多个用&隔开
-如:变量内输入push需再添加mt_push变量 内容是push的token即可
+//如需推送将需要的推送写入变量mt_fs即可多个用&隔开 内容有tel,qm,stb,push,kt
+//推送变量mt_push,mt_ktkey,mt_telkey,mt_qkey,mt_skey 目前可用变量mt_push,mt_ktkey
+如:使用push推送需在mt_fs填入push然后再添加mt_push变量 内容是push的token即可
 """
 import requests
 import os
